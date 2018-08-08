@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ToPay Server">
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.5</version>
+  </skin>
+  <bannerLeft>
+    <name>ToPay Server</name>
+    <href>https://topay.extranet.netcetera.biz</href>
+  </bannerLeft>
+  <body>
+    <menu name="Architecture">
+      <item name="System Context" href="architecture/system-context.html"/>
+      <item name="Containers" href="architecture/containers.html"/>
+      <item name="Components" href="architecture/components.html"/>
+    </menu>
+  </body>
+</project>

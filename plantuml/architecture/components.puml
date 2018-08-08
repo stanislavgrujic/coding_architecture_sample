@@ -1,0 +1,82 @@
+@startuml
+
+title Component diagram
+
+top to bottom direction
+
+skinparam rectangle {
+  BackgroundColor<<Component>> lightBlue
+  BackgroundColor<<External>> green
+  BackgroundColor<<SoftwareSystem>> lightSkyBlue
+}
+
+rectangle RelationalDatabase<<External>>[
+  Relational Database
+  (Container: MySql 5.5.x)
+]
+
+rectangle FileSystem<<External>>[
+  File System
+  (Container)
+]
+
+frame "Components"{
+rectangle GitHubComponent<<Component>>[
+  GitHub Component
+--
+  (Component: Spring Bean and JDBC)
+
+  Provides access to GitHub repos
+]
+
+rectangle SearchComponent<<Component>>[
+  Search Component
+--
+  (Component: Spring Bean
+  and Apache Lucene)
+
+  Search facilities for news feed entries
+  and tweets
+]
+
+rectangle ScheduledContentUpdater<<Component>>[
+  Scheduled Content Updater
+]
+
+rectangle GitHubConnector<<Component>>[
+  GitHub Connector
+  --
+  (Component: Spring Bean and Eclipse Mylyn)
+  Retrieves information about public repos
+]
+
+rectangle TwitterConnector<<Component>>[
+  Twitter Connector
+  --
+  (Component: Spring Bean and Twitter4j)
+  Retrieves profile information and tweets
+]
+}
+
+rectangle GitHub<<SoftwareSystem>>[
+  GitHub
+  (Software System)
+]
+
+rectangle Twitter<<SoftwareSystem>>[
+  Twitter
+  (Software System)
+]
+
+GitHubComponent -.-> RelationalDatabase : Reads from and writes data to (SQL/JDBC, port: 3306)
+SearchComponent -.-> FileSystem : Writes to
+ScheduledContentUpdater -.-> GitHubComponent
+ScheduledContentUpdater -.-> SearchComponent
+ScheduledContentUpdater -.-> GitHubConnector
+ScheduledContentUpdater -.-> TwitterConnector
+
+GitHubConnector -.-> GitHub
+TwitterConnector -.-> Twitter
+
+@enduml
+
