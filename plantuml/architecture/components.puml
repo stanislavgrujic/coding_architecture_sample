@@ -4,24 +4,24 @@ title Component diagram
 
 top to bottom direction
 
-skinparam rectangle {
+skinparam component {
   BackgroundColor<<Component>> lightBlue
   BackgroundColor<<External>> green
   BackgroundColor<<SoftwareSystem>> lightSkyBlue
 }
 
-rectangle RelationalDatabase<<External>>[
+component RelationalDatabase<<External>>[
   Relational Database
   (Container: MySql 5.5.x)
 ]
 
-rectangle FileSystem<<External>>[
+component FileSystem<<External>>[
   File System
   (Container)
 ]
 
 frame "Components"{
-rectangle GitHubComponent<<Component>>[
+component GitHubComponent<<Component>>[
   GitHub Component
 --
   (Component: Spring Bean and JDBC)
@@ -29,7 +29,7 @@ rectangle GitHubComponent<<Component>>[
   Provides access to GitHub repos
 ]
 
-rectangle SearchComponent<<Component>>[
+component SearchComponent<<Component>>[
   Search Component
 --
   (Component: Spring Bean
@@ -39,18 +39,18 @@ rectangle SearchComponent<<Component>>[
   and tweets
 ]
 
-rectangle ScheduledContentUpdater<<Component>>[
+component ScheduledContentUpdater<<Component>>[
   Scheduled Content Updater
 ]
 
-rectangle GitHubConnector<<Component>>[
+component GitHubConnector<<Component>>[
   GitHub Connector
   --
   (Component: Spring Bean and Eclipse Mylyn)
   Retrieves information about public repos
 ]
 
-rectangle TwitterConnector<<Component>>[
+component TwitterConnector<<Component>>[
   Twitter Connector
   --
   (Component: Spring Bean and Twitter4j)
@@ -58,12 +58,12 @@ rectangle TwitterConnector<<Component>>[
 ]
 }
 
-rectangle GitHub<<SoftwareSystem>>[
+component GitHub<<SoftwareSystem>>[
   GitHub
   (Software System)
 ]
 
-rectangle Twitter<<SoftwareSystem>>[
+component Twitter<<SoftwareSystem>>[
   Twitter
   (Software System)
 ]
