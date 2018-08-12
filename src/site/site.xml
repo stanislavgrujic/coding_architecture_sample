@@ -14,6 +14,7 @@
       <item name="System Context" href="architecture/system-context.html"/>
       <item name="Containers" href="architecture/containers.html"/>
       <item name="Components" href="architecture/components.html"/>
+      <item name="Test" href="test.html"/>
     </menu>
   </body>
 </project>
